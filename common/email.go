@@ -9,6 +9,7 @@ import (
 
 func InitEmail(redis_c redis.Conn){
 	startEmail(redis_c,config.C.Msg.Email_sent)
+	return
 }
 
 func startEmail(redis_c redis.Conn,email_key string){
@@ -37,6 +38,7 @@ func sendEmail(email string, content string,subject string,redis_c redis.Conn){
 		fail := make(map[string]string, 2)
 		fail["email"] = email
 		fail["content"] = content
+		fail["subject"] = subject
 		mjson,_ :=json.Marshal(fail)
 		fail_data :=string(mjson)
 		redis_c.Do("lpush", config.C.Msg.Email_fail,fail_data)

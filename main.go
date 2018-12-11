@@ -12,5 +12,5 @@ func main(){
 	if err != nil {
 		return
 	}
-    common.InitEmail(redis_c)
+    go common.InitEmail(redis_c)
 }
