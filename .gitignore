@@ -1,0 +1,7 @@
+#IDE
+._.DS_Store
+.DS_Store
+.idea/*
+
+# config
+/config/config.yaml
